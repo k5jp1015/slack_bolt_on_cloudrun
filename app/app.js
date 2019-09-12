@@ -6,8 +6,15 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET
 });
 
-app.event('app_home_opened', ({ event, say }) => {  
-  say(`Hello world, <@${event.user}>!`);
+// appのhomeチャンネルを開いたときにhello
+// app.event('app_home_opened', ({ event, say }) => {  
+//   say(`Hello world, <@${event.user}>!`);
+// });
+
+// Listens to incoming messages that contain "hello"
+app.message('hello', ({ message, say }) => {
+  // say() sends a message to the channel where the event was triggered
+  say(`Hey there <@${message.user}>!`);
 });
 
 (async () => {
