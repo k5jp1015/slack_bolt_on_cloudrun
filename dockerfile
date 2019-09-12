@@ -17,4 +17,5 @@ RUN npm install --only=production
 COPY app .
 
 # Run the web service on container startup.
-CMD [ "node", "app.js" ]
+# CMD [ "node", "src/js/app.js" ]
+CMD [ "node", "public/js/bundle.js" ]
