@@ -17,6 +17,14 @@ app.message('hello', ({ message, say }) => {
   say(`Hey there <@${message.user}>!`);
 });
 
+// この echo コマンドは 単純にコマンドをエコー（こだま）
+app.command('/echo', async ({ command, ack, say }) => {
+  // コマンドリクエストを確認
+  ack();
+  
+  say(`${command.text}`);
+});
+
 (async () => {
   // Start your app
   await app.start(process.env.PORT || 3000);
