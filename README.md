@@ -42,5 +42,12 @@ gcloud beta run deploy --image gcr.io/devteam-1341/slack-app --platform managed
 
 cloud run上でデプロイが成功すれば公開URLを取得できるので、それに「/slack/events」をつけたものを「slack app設定画面」、Event SubscriptionsのRequest URLに設定する
 
+## webpackで、tsをトランスコンパイルして、バンドルする
+WIP　typescriptに対して、トランスコンパイルしたものをbundleする
+
+[webpack 4 入門](https://qiita.com/soarflat/items/28bf799f7e0335b68186)
+[Prettier 入門 ～ESLintとの違いを理解して併用する～](https://qiita.com/soarflat/items/06377f3b96964964a65d)
+[Babel 7でTypeScriptをトランスパイルしつつ型チェックをする 〜webpack 4 + Babel 7 + TypeScript + TypeScript EsLint + Prettierの開発環境を構築する〜](https://qiita.com/soarflat/items/d583356e46250a529ed5)
+
 ##　その他
 アプリがチャンネルのイベントをリスニングするためには、Subscribe to Bot Eventsの設定が必須
