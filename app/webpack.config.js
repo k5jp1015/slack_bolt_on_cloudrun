@@ -3,6 +3,8 @@ const { resolve } = require('path');
 module.exports = {
   // エントリーポイントの設定
   entry: './src/ts/app.ts',
+  // ライブラリでnode.jsが使われている場合は追加する
+  target: 'node',
   // 出力の設定
   output: {
     // 出力するファイル名
@@ -11,7 +13,11 @@ module.exports = {
     path: resolve(__dirname, 'public/js')
   },
   resolve: {
-    extensions: ['.ts']
+    // modules: [
+    //   "node_modules",
+    //   // path.resolve(__dirname, "src/ts")
+    // ],
+    extensions: ['.ts','.js']
   },
   module: {
     rules: [
