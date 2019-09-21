@@ -1,0 +1,21 @@
+{
+    /*
+    以下のようにprettier/@typescript-eslintを記述することで、
+    plugin:@typescript-eslint/recommendedのコードフォーマット関連のルールが無効になり、
+    Prettierとの競合を避けられる。
+    */ 
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "prettier/@typescript-eslint"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true
+        }
+      ]
+    }
+  }
