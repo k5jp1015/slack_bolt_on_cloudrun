@@ -1,6 +1,9 @@
 ## 参考サイト
 https://qiita.com/girlie_mac/items/93538f9a69eb4015f951
 
+## リンク
+[slack api 設定画面Top](https://api.slack.com/apps)
+
 ### ローカル→外部IP連携で動かしましょう
 #### まずはローカルDocker起動
 プロジェクトのルートディレクトリでdocker起動

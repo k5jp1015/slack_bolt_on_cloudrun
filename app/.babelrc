@@ -1,5 +1,15 @@
 // npm installしたパッケージ（プリセットとプラグイン）を利用するために以下の用に設定
 {
-    "presets": ["@babel/env", "@babel/typescript"],
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        "@babel/typescript"
+    ],
     "plugins": ["@babel/proposal-class-properties", "@babel/proposal-object-rest-spread"]
 }
