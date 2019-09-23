@@ -1,6 +1,8 @@
 
 require('dotenv').config();
 import * as Bolt from '@slack/bolt';
+import './modules/slack-block-kits'
+import { sampleBlock } from './modules/slack-block-kits';
 
 const app = new Bolt.App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -18,28 +20,28 @@ app.message('hello', ({ message, say }) => {
   // say(`Hey there <@${message.user}>!`);
 
   // 型エラーが出たのでanyで型指定した変数を設定することで対応した
-  let blocks:any = {
-    blocks: [
-    {
-	    "type": "section",
-      "text": {
-        "type": "mrkdwn",
-        "text": `Hey there <@${message.user}>!`
-      },
-      "accessory": {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "Click Me"
-        },
-        "action_id": "button_click"
-      }
-     }
-    ]
-  };
+  // let blocks:any = {
+  //   blocks: [
+  //   {
+	//     "type": "section",
+  //     "text": {
+  //       "type": "mrkdwn",
+  //       "text": `Hey there <@${message.user}>!`
+  //     },
+  //     "accessory": {
+  //       "type": "button",
+  //       "text": {
+  //         "type": "plain_text",
+  //         "text": "Click Me"
+  //       },
+  //       "action_id": "button_click"
+  //     }
+  //    }
+  //   ]
+  // };
 
   // interactive message
-  say(blocks);
+  say(sampleBlock);
 
 });
 
