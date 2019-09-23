@@ -1,3 +1,3 @@
 app/node_modules/
 app/public/js/*
-*env
+app/.env
