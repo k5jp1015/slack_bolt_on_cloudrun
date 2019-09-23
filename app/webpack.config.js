@@ -13,10 +13,6 @@ module.exports = {
     path: resolve(__dirname, 'public/js')
   },
   resolve: {
-    // modules: [
-    //   "node_modules",
-    //   // path.resolve(__dirname, "src/ts")
-    // ],
     extensions: ['.ts','.js']
   },
   module: {

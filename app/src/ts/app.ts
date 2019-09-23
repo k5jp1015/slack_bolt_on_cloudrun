@@ -15,7 +15,38 @@ const app = new Bolt.App({
 // Listens to incoming messages that contain "hello"
 app.message('hello', ({ message, say }) => {
   // say() sends a message to the channel where the event was triggered
-  say(`Hey there <@${message.user}>!`);
+  // say(`Hey there <@${message.user}>!`);
+
+  // 型エラーが出たのでanyで型指定した変数を設定することで対応した
+  let blocks:any = {
+    blocks: [
+    {
+	    "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": `Hey there <@${message.user}>!`
+      },
+      "accessory": {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "Click Me"
+        },
+        "action_id": "button_click"
+      }
+     }
+    ]
+  };
+
+  // interactive message
+  say(blocks);
+
+});
+
+app.action('button_click', ({ body, ack, say }) => {
+  // Acknowledge the action
+  ack();
+  say(`<@${body.user.id}> clicked the button`);
 });
 
 // この echo コマンドは 単純にコマンドをエコー（こだま）
