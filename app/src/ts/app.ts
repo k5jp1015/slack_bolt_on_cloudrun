@@ -1,8 +1,7 @@
-
 require('dotenv').config();
 import * as Bolt from '@slack/bolt';
-import './modules/slack-block-kits'
-import { sampleBlock, sectionWithSelect } from './modules/slack-block-kits';
+import './modules/slack-block-kits';
+import { sampleBlock, sectionWithSelect, sectionWithSelect2 } from './modules/slack-block-kits';
 
 const app = new Bolt.App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -23,7 +22,7 @@ app.message('hello', ({ message, say }) => {
   // let blocks:any = {
   //   blocks: [
   //   {
-	//     "type": "section",
+  //     "type": "section",
   //     "text": {
   //       "type": "mrkdwn",
   //       "text": `Hey there <@${message.user}>!`
@@ -42,13 +41,18 @@ app.message('hello', ({ message, say }) => {
 
   // interactive message
   say(sampleBlock);
-
 });
 
 app.action('button_click', ({ body, ack, say }) => {
   // Acknowledge the action
   ack();
   say(`<@${body.user.id}> clicked the button`);
+});
+
+app.action('click_body', ({ body, ack, say }) => {
+  // Acknowledge the action
+  ack();
+  say(`<@${body}> clicked the button`);
 });
 
 // この echo コマンドは 単純にコマンドをエコー（こだま）
@@ -64,7 +68,7 @@ app.command('/sancha_lunch', async ({ command, ack, say }) => {
   // コマンドリクエストを確認
   ack();
 
-  say(sectionWithSelect);
+  say(sectionWithSelect2);
 });
 
 (async () => {
