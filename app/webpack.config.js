@@ -8,7 +8,7 @@ module.exports = {
   // 出力の設定
   output: {
     // 出力するファイル名
-    filename: 'bundle_2.js',
+    filename: 'bundle.js',
     // 出力先のパス（絶対パスを指定する必要がある）
     path: resolve(__dirname, 'public/js')
   },
