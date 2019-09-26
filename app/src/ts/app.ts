@@ -2,7 +2,7 @@
 require('dotenv').config();
 import * as Bolt from '@slack/bolt';
 import './modules/slack-block-kits'
-import { sampleBlock } from './modules/slack-block-kits';
+import { sampleBlock, sectionWithSelect } from './modules/slack-block-kits';
 
 const app = new Bolt.App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -57,6 +57,14 @@ app.command('/echo', async ({ command, ack, say }) => {
   ack();
 
   say(`${command.text}`);
+});
+
+// 三茶ランチ WIP
+app.command('/sancha_lunch', async ({ command, ack, say }) => {
+  // コマンドリクエストを確認
+  ack();
+
+  say(sectionWithSelect);
 });
 
 (async () => {
